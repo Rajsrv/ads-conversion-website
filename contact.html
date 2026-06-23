@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Ads Conversions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#06060f;--ink2:#0d0d22;--blue:#1a42d4;--b2:#2651f5;--sky:#4a9eff;--gold:#f59e0b;--green:#22c55e;--purple:#8b5cf6;--w:#fff;--off:#f8f9ff;--mu:#64748b;--bdr:#e2e8f0;--r:14px;--rl:22px;--fh:'Outfit',sans-serif;--fb:'Plus Jakarta Sans',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:linear-gradient(180deg,#0d2060 0%,#1f3e8b 40%,#e8f2ff 100%);color:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+section#contact{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(8,22,70,.95),rgba(20,52,116,.96) 42%,rgba(242,247,255,1) 100%);color:#fff}
+section#contact::before{content:'';position:absolute;top:-30%;left:-15%;width:420px;height:420px;background:radial-gradient(circle at center,rgba(255,255,255,.18),transparent 56%);pointer-events:none}
+.tag{display:inline-flex;background:rgba(255,255,255,.12);color:#fff;padding:9px 18px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+nav .logo-t{color:#fff}
+nav .nl a, .mob ul li a{color:#fff}
+nav.sc .logo-t, nav.sc .nl a{color:rgba(15,15,46,.85)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.sec{padding:110px 0 88px}
+.h1{font-family:var(--fh);font-size:clamp(34px,5.5vw,48px);font-weight:900}
+.lead{font-size:17px;color:rgba(255,255,255,.78);line-height:1.75}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fh);font-size:15px;font-weight:600;padding:14px 28px;border-radius:50px;cursor:pointer;text-decoration:none;transition:all .25s;border:none;white-space:nowrap}
+.btn-b{background:var(--b2);color:#fff;box-shadow:0 4px 18px rgba(38,81,245,.28)}
+.btn-b:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 10px 28px rgba(38,81,245,.38)}
+.btn-g{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 4px 18px rgba(245,158,11,.28)}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,.38)}
+.btn-ow{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+.btn-ow:hover{border-color:#fff}
+.btn-ob{background:transparent;color:var(--b2);border:2px solid rgba(38,81,245,.28)}
+.btn-ob:hover{border-color:var(--b2);background:rgba(38,81,245,.04)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s;background:transparent}
+nav.sc{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--bdr)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.logo-t{font-family:var(--fh);font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+.logo-t span{color:var(--b2)}
+nav.sc .logo-t{color:var(--ink)}
+.nl{display:flex;align-items:center;gap:26px;list-style:none}
+.nl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+nav.sc .nl a{color:rgba(15,15,46,.7)}
+.nl a:hover{color:var(--b2) !important;opacity:1}
+nav.sc .nl a:hover{color:var(--b2)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+nav.sc .hbg span{background:var(--ink)}
+.hbg.op span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.op span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg.op span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(6,6,15,.97);backdrop-filter:blur(20px);z-index:99;flex-direction:column;padding:28px 20px 36px;overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.mob.op{transform:translateX(0)}
+.mob ul{list-style:none;display:flex;flex-direction:column;margin-bottom:28px}
+.mob ul li a{display:block;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.8);text-decoration:none;font-family:var(--fh);font-size:18px;font-weight:600}
+.mob-btns{display:flex;flex-direction:column;gap:10px}
+
+/* FOOTER */
+footer{background:var(--ink2);color:#fff;padding:64px 0 32px}
+.fg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-bottom:48px}
+.logo-t{color:#fff}
+.logo-t span{color:var(--sky)}
+.fb-text{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:16px}
+.fc h4{font-family:var(--fh);font-size:14px;font-weight:700;margin-bottom:18px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:10px}
+.fc a{color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb-bot{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(255,255,255,.5)}
+.soc{display:flex;gap:12px}
+.sb{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;font-family:var(--fh);font-size:12px;font-weight:700;transition:all .2s}
+.sb:hover{background:var(--b2);color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hbg{display:flex}
+  .nl{display:none}
+  .mob{display:flex}
+  nav.sc .logo-t{color:var(--ink)}
+}
+
+/* Footer responsive tweaks */
+@media(max-width:1024px){
+  .fg-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+}
+@media(max-width:640px){
+  .fg-grid{grid-template-columns:1fr;gap:20px}
+  .fg-grid > div{padding-right:0}
+  footer{padding:48px 0 24px}
+  .fb-bot{flex-direction:column;gap:12px;text-align:center}
+  .soc{justify-content:center}
+  .logo-t{display:flex;align-items:center;gap:8px}
+}
+
+@media(max-width:640px){
+  .h1{font-size:clamp(28px,6vw,48px)}
+  .h2{font-size:clamp(22px,5vw,36px)}
+  .sec{padding:64px 0}
+  .fb-bot{flex-direction:column;gap:16px;text-align:center}
+  .wrap{padding:0 16px}
+  img,iframe,video{max-width:100%;height:auto}
+  body{overflow-x:hidden}
+}
+
+/* HFORM */
+.hform{background:#fff;border-radius:var(--rl);padding:34px 30px;box-shadow:0 24px 90px rgba(0,0,0,.16)}
+.hft{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--ink2);margin-bottom:6px}
+.hfs{font-size:13px;color:var(--mu);margin-bottom:22px}
+.fg{margin-bottom:16px}
+.fg input,.fg textarea{width:100%;border-radius:14px;padding:14px 16px;border:1px solid rgba(15,23,42,.12);background:#f8fbff;font-size:15px;color:var(--ink2);outline:none}
+.fg textarea{min-height:120px;resize:vertical}
+.btn-submit{background:linear-gradient(90deg,#2b67f6,#9b2cfb);color:#fff;padding:14px 22px;border-radius:14px;border:none;font-weight:700;cursor:pointer;box-shadow:0 18px 40px rgba(38,81,245,.25)}
+.contact-grid{display:block;gap:32px}
+.h-contact{background:rgba(255,255,255,.08);padding:28px;border-radius:18px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(14px);box-shadow:0 20px 40px rgba(6,6,15,.12)}
+.h-contact h3{font-family:var(--fh);margin-bottom:12px;color:#fff}
+.h-contact p{color:rgba(255,255,255,.75);margin-bottom:8px}
+.contact-list{display:flex;flex-direction:column;gap:14px}
+.contact-item{display:flex;gap:10px;align-items:flex-start}
+.contact-item strong{min-width:120px;color:#dbe5ff}
+.contact-item div{color:rgba(255,255,255,.92);line-height:1.65}
+.contact-item a{color:#a6d7ff;text-decoration:none}
+.contact-item a:hover{color:#fff;text-decoration:underline}
+
+@media(min-width:920px){.contact-grid{display:grid;grid-template-columns:1fr 480px;gap:32px}}
+</style>
+</head>
+<body>
+  <div data-include="header.html"></div>
+
+  <section id="contact" class="sec">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:28px">
+        <div class="tag" style="display:inline-flex">Contact</div>
+        <h1 class="h1" style="margin-top:12px">Get in touch with Ads Conversions</h1>
+        <p class="lead" style="max-width:760px;margin:10px auto 0">We typically reply within 24 hours — share a few details and we'll get back to you with next steps.</p>
+      </div>
+
+      <div class="contact-grid" style="margin-top:28px">
+        <div class="h-contact">
+          <h3>Office</h3>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Address:</strong><div>adsconversions<br>Ground Floor, A-99, Allianz Tower, Sector 65, Noida - 201301</div></div>
+            <div class="contact-item"><strong>Phone:</strong><div>+91 88517 51427</div></div>
+            <div class="contact-item"><strong>WhatsApp:</strong><div><a href="https://wa.me/918851751427" target="_blank">+91 88517 51427</a></div></div>
+            <div class="contact-item"><strong>Email:</strong><div><a href="mailto:connect@adsconversions.com">connect@adsconversions.com</a></div></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="hform" id="hform">
+            <div class="hft">Connect With Our Experts</div>
+            <div class="hfs">Fill a few details and we'll get back to you</div>
+            <div class="fg"><input class="input-field" type="text" placeholder="Your Name*" aria-label="Your Name"></div>
+            <div class="fg"><input class="input-field" type="tel" placeholder="Your Mobile Number*" aria-label="Your Mobile Number"></div>
+            <div class="fg"><input class="input-field" type="email" placeholder="Your Email*" aria-label="Your Email"></div>
+            <div class="fg"><input class="input-field" type="text" placeholder="Business / Website" aria-label="Business or Website"></div>
+            <div class="fg"><textarea class="input-field" placeholder="Anything else you would like us to know?" aria-label="Message"></textarea></div>
+            <button type="button" class="btn-submit fsub">Submit</button>
+            <p class="hint" style="margin-top:10px;color:var(--mu);font-size:13px">🔒 Your details are safe. We respect your privacy.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div data-include="footer.html"></div>
+  <script src="include-fragments.js"></script>
+</body>
+</html>

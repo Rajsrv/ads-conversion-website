@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | Ads Conversions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#06060f;--ink2:#0d0d22;--blue:#1a42d4;--b2:#2651f5;--sky:#4a9eff;
+  --gold:#f59e0b;--green:#22c55e;--purple:#8b5cf6;
+  --w:#fff;--off:#f8f9ff;--mu:#64748b;--bdr:#e2e8f0;
+  --r:14px;--rl:22px;
+  --fh:'Outfit',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fb);background:var(--w);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.sec{padding:88px 0}
+.sec-off{background:var(--off)}
+.sec-dk{background:var(--ink2)}
+.tag{display:inline-flex;align-items:center;gap:6px;background:rgba(38,81,245,.08);color:var(--b2);border:1px solid rgba(38,81,245,.18);border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;margin-bottom:14px}
+.tag-w{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.18)}
+.h1{font-family:var(--fh);font-size:clamp(34px,5.5vw,68px);font-weight:900;line-height:1.06;letter-spacing:-.03em}
+.h2{font-family:var(--fh);font-size:clamp(26px,3.5vw,46px);font-weight:800;line-height:1.12;letter-spacing:-.025em}
+.h3{font-family:var(--fh);font-size:18px;font-weight:700}
+.lead{font-size:17px;color:var(--mu);line-height:1.75}
+.lw{color:rgba(255,255,255,.6)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fh);font-size:15px;font-weight:600;padding:14px 28px;border-radius:50px;cursor:pointer;text-decoration:none;transition:all .25s;border:none;white-space:nowrap}
+.btn-b{background:var(--b2);color:#fff;box-shadow:0 4px 18px rgba(38,81,245,.28)}
+.btn-b:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 10px 28px rgba(38,81,245,.38)}
+.btn-g{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 4px 18px rgba(245,158,11,.28)}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,.38)}
+.btn-ow{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+.btn-ow:hover{border-color:#fff}
+.btn-ob{background:transparent;color:var(--b2);border:2px solid rgba(38,81,245,.28)}
+.btn-ob:hover{border-color:var(--b2);background:rgba(38,81,245,.04)}
+.fu{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.fu.vis{opacity:1;transform:translateY(0)}
+.fu.d1{transition-delay:.1s}.fu.d2{transition-delay:.2s}.fu.d3{transition-delay:.3s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s;background:transparent}
+nav.sc{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--bdr)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.logo-t{font-family:var(--fh);font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+.logo-t span{color:var(--b2)}
+nav.sc .logo-t{color:var(--ink)}
+.nl{display:flex;align-items:center;gap:26px;list-style:none}
+.nl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+nav.sc .nl a{color:rgba(15,15,46,.7)}
+.nl a:hover{color:var(--b2) !important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+nav.sc .hbg span{background:var(--ink)}
+.hbg.op span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.op span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg.op span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(6,6,15,.97);backdrop-filter:blur(20px);z-index:99;flex-direction:column;padding:28px 20px 36px;overflow-y:auto;transform:translateX(100%);transition:transform .35s}
+.mob.op{transform:translateX(0)}
+.mob ul{list-style:none;display:flex;flex-direction:column;margin-bottom:28px}
+.mob ul li a{display:block;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.8);text-decoration:none;font-family:var(--fh);font-size:18px;font-weight:600}
+.mob-btns{display:flex;flex-direction:column;gap:10px}
+
+/* THANK YOU CONTENT */
+.ty-section{min-height:100vh;min-height:100svh;background:var(--ink2);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:68px}
+.ty-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 80% 45%,rgba(34,197,94,.15) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 15% 70%,rgba(74,158,255,.15) 0%,transparent 60%)}
+.ty-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px}
+.ty-content{position:relative;z-index:1;text-align:center;max-width:700px;margin:0 auto;padding:60px 24px}
+.ty-icon{font-size:80px;margin-bottom:32px;animation:checkAnimation 0.8s ease-out}
+@keyframes checkAnimation{0%{transform:scale(0) rotate(-45deg);opacity:0}50%{transform:scale(1.1)}100%{transform:scale(1) rotate(0);opacity:1}}
+.ty-title{font-family:var(--fh);font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:20px}
+.ty-subtitle{font-size:18px;color:rgba(255,255,255,.7);margin-bottom:32px;line-height:1.6}
+.ty-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.ty-info{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--rl);padding:28px;margin-top:40px;backdrop-filter:blur(10px)}
+.ty-info-item{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.ty-info-item:last-child{margin-bottom:0}
+.ty-icon-small{font-size:24px}
+.ty-info-text{text-align:left}
+.ty-info-label{font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.ty-info-value{font-family:var(--fh);font-size:15px;font-weight:700;color:#fff}
+
+/* FOOTER */
+footer{background:var(--ink2);color:#fff;padding:64px 0 32px}
+.fg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-bottom:48px}
+.logo-t{color:#fff}
+.logo-t span{color:var(--sky)}
+.fb-text{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:16px}
+.fc h4{font-family:var(--fh);font-size:14px;font-weight:700;margin-bottom:18px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:10px}
+.fc a{color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb-bot{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(255,255,255,.5)}
+.soc{display:flex;gap:12px}
+.sb{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;font-family:var(--fh);font-size:12px;font-weight:700;transition:all .2s}
+.sb:hover{background:var(--b2);color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .fg-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .hbg{display:flex}
+  .nl{display:none}
+  .mob{display:flex}
+}
+
+@media(max-width:768px){
+  .ty-icon{font-size:60px;margin-bottom:24px}
+  .ty-title{font-size:clamp(24px,5vw,36px);margin-bottom:16px}
+  .ty-subtitle{font-size:16px;margin-bottom:24px}
+  .ty-info{padding:20px}
+  .ty-cta{flex-direction:column}
+  .btn{width:100%;padding:12px 20px;font-size:14px}
+}
+
+@media(max-width:640px){
+  .ty-content{padding:40px 20px}
+  .ty-section{padding-top:68px}
+  .ty-icon{font-size:48px;margin-bottom:20px}
+  .ty-title{font-size:clamp(20px,5vw,28px)}
+  .ty-subtitle{font-size:14px;line-height:1.5}
+  .ty-info-item{gap:12px}
+  .ty-icon-small{font-size:20px}
+  .fb-bot{flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- GLOBAL HEADER -->
+<div data-include="header.html"></div>
+
+<!-- THANK YOU CONTENT -->
+<section class="ty-section">
+  <div class="ty-bg"></div>
+  <div class="ty-dots"></div>
+  <div class="wrap">
+    <div class="ty-content">
+      <div class="ty-icon">✅</div>
+      <h1 class="ty-title">Thank You!</h1>
+      <p class="ty-subtitle">We've received your inquiry and our team will get back to you within 24 hours with personalized recommendations for your business.</p>
+      
+      <div class="ty-cta">
+        <a href="/" class="btn btn-b">← Back to Home</a>
+        <a href="/" class="btn btn-ow">📞 Contact Support</a>
+      </div>
+
+      <div class="ty-info">
+        <div class="ty-info-item">
+          <div class="ty-icon-small">⏱️</div>
+          <div class="ty-info-text">
+            <div class="ty-info-label">Response Time</div>
+            <div class="ty-info-value">Within 24 Business Hours</div>
+          </div>
+        </div>
+        <div class="ty-info-item">
+          <div class="ty-icon-small">📧</div>
+          <div class="ty-info-text">
+            <div class="ty-info-label">Email Confirmation</div>
+            <div class="ty-info-value">Check your inbox for details</div>
+          </div>
+        </div>
+        <div class="ty-info-item">
+          <div class="ty-icon-small">💬</div>
+          <div class="ty-info-text">
+            <div class="ty-info-label">Questions?</div>
+            <div class="ty-info-value">Call us at +91 XXXXXXXXXX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL FOOTER -->
+<div data-include="footer.html"></div>
+
+<script src="include-fragments.js"></script>
+</body>
+</html>

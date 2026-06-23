@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketplace Services | Ads Conversions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#06060f;--ink2:#0d0d22;--blue:#1a42d4;--b2:#2651f5;--sky:#4a9eff;
+  --gold:#f59e0b;--green:#22c55e;--purple:#8b5cf6;
+  --w:#fff;--off:#f8f9ff;--mu:#64748b;--bdr:#e2e8f0;
+  --r:14px;--rl:22px;
+  --fh:'Outfit',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fb);background:var(--w);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.sec{padding:88px 0}
+.sec-off{background:var(--off)}
+.sec-dk{background:var(--ink2)}
+.tag{display:inline-flex;align-items:center;gap:6px;background:rgba(38,81,245,.08);color:var(--b2);border:1px solid rgba(38,81,245,.18);border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;margin-bottom:14px}
+.tag-w{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.18)}
+.h1{font-family:var(--fh);font-size:clamp(34px,5.5vw,68px);font-weight:900;line-height:1.06;letter-spacing:-.03em}
+.h2{font-family:var(--fh);font-size:clamp(26px,3.5vw,46px);font-weight:800;line-height:1.12;letter-spacing:-.025em}
+.h3{font-family:var(--fh);font-size:18px;font-weight:700}
+.lead{font-size:17px;color:var(--mu);line-height:1.75}
+.lw{color:rgba(255,255,255,.6)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fh);font-size:15px;font-weight:600;padding:14px 28px;border-radius:50px;cursor:pointer;text-decoration:none;transition:all .25s;border:none;white-space:nowrap}
+.btn-b{background:var(--b2);color:#fff;box-shadow:0 4px 18px rgba(38,81,245,.28)}
+.btn-b:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 10px 28px rgba(38,81,245,.38)}
+.btn-g{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 4px 18px rgba(245,158,11,.28)}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,.38)}
+.btn-ow{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+.btn-ow:hover{border-color:#fff}
+.btn-ob{background:transparent;color:var(--b2);border:2px solid rgba(38,81,245,.28)}
+.btn-ob:hover{border-color:var(--b2);background:rgba(38,81,245,.04)}
+.fu{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.fu.vis{opacity:1;transform:translateY(0)}
+.fu.d1{transition-delay:.1s}.fu.d2{transition-delay:.2s}.fu.d3{transition-delay:.3s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s;background:transparent}
+nav.sc{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--bdr)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.logo-t{font-family:var(--fh);font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+.logo-t span{color:var(--b2)}
+nav.sc .logo-t{color:var(--ink)}
+.nl{display:flex;align-items:center;gap:26px;list-style:none}
+.nl a{color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+nav.sc .nl a{color:rgba(15,15,46,.7)}
+.nl a:hover{color:var(--b2) !important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+nav.sc .hbg span{background:var(--ink)}
+.hbg.op span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.op span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg.op span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(6,6,15,.97);backdrop-filter:blur(20px);z-index:99;flex-direction:column;padding:28px 20px 36px;overflow-y:auto;transform:translateX(100%);transition:transform .35s}
+.mob.op{transform:translateX(0)}
+.mob ul{list-style:none;display:flex;flex-direction:column;margin-bottom:28px}
+.mob ul li a{display:block;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.8);text-decoration:none;font-family:var(--fh);font-size:18px;font-weight:600}
+.mob-btns{display:flex;flex-direction:column;gap:10px}
+
+/* HERO */
+#hero{min-height:100vh;min-height:100svh;background:var(--ink2);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:68px}
+.hbg1{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 80% 45%,rgba(139,92,246,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 15% 70%,rgba(38,81,245,.15) 0%,transparent 60%)}
+.hdots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:52px;align-items:center;padding:60px 0}
+.h-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);border-radius:50px;padding:7px 16px;font-size:13px;font-weight:600;color:#c4b5fd;margin-bottom:22px}
+.pulse{width:7px;height:7px;border-radius:50%;background:#a78bfa;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.h1 em{font-style:normal;background:linear-gradient(90deg,#a78bfa,#4a9eff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{color:rgba(255,255,255,.55);font-size:17px;line-height:1.75;margin:18px 0 28px;max-width:520px}
+.h-btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* HFORM */
+.hform{background:#fff;border-radius:var(--rl);padding:30px 26px;box-shadow:0 20px 70px rgba(0,0,0,.4)}
+.hft{font-family:var(--fh);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.hfs{font-size:13px;color:var(--mu);margin-bottom:20px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.fg input,.fg select{width:100%;background:#f8f9ff;border:1.5px solid var(--bdr);border-radius:10px;padding:11px 14px;font-family:var(--fb);font-size:14px;color:var(--ink);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus{border-color:var(--b2);background:#fff}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fsub{width:100%;margin-top:4px}
+
+/* Contact form (shared style) */
+.hform .input-field{width:100%;border-radius:12px;padding:14px 16px;border:1px solid var(--bdr);background:#fff;font-size:15px;color:var(--ink);outline:none;transition:box-shadow .18s,border-color .18s}
+.hform .input-field:focus{border-color:var(--b2);box-shadow:0 8px 28px rgba(38,81,245,.08)}
+.hform textarea{min-height:120px;border-radius:12px;padding:14px 16px;border:1px solid var(--bdr);resize:vertical;font-size:15px;color:var(--ink);outline:none}
+.btn-submit{background:linear-gradient(90deg,#2b67f6,#9b2cfb);color:#fff;padding:14px 24px;border-radius:14px;box-shadow:0 10px 30px rgba(43,103,246,.2);border:none;font-weight:700;font-size:16px;cursor:pointer}
+.btn-submit:hover{transform:translateY(-3px)}
+.hform .hint{font-size:12px;color:var(--mu);text-align:center;margin-top:10px}
+
+/* MARKETPLACES GRID */
+.mp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:40px 0;text-align:center}
+.mp-badge{background:rgba(38,81,245,.08);border:1px solid rgba(38,81,245,.18);border-radius:10px;padding:16px 12px;font-family:var(--fh);font-size:28px;transition:all .2s}
+.mp-badge:hover{border-color:var(--b2);background:rgba(38,81,245,.15);transform:translateY(-4px)}
+
+/* SERVICES GRID */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.svc-card{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:16px;padding:24px;border:1px solid rgba(34,50,80,.06);transition:all .28s;box-shadow:0 8px 22px rgba(15,23,42,.04)}
+.vc-accent{height:6px;width:64px;background:linear-gradient(90deg,var(--b2),var(--sky));border-radius:6px;margin-bottom:10px}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.08);border-color:rgba(38,81,245,.12)}
+.svc-card h3{font-size:16px;margin-bottom:8px}
+.svc-card p{color:var(--mu);font-size:14px;line-height:1.6}
+
+/* PROCESS GRID */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.proc-step{text-align:center}
+.proc-circle{width:60px;height:60px;background:var(--b2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:24px;font-weight:700;color:#fff;margin:0 auto 16px}
+.proc-step h4{font-family:var(--fh);margin-bottom:10px}
+.proc-step p{color:var(--mu);font-size:14px;line-height:1.6}
+
+/* FAQ */
+.faq-wrap{display:flex;flex-direction:column;gap:12px;margin-top:48px}
+.faq-item{border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
+.faq-q{width:100%;background:#fff;border:none;padding:18px 20px;text-align:left;font-family:var(--fh);font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:var(--off)}
+.faq-q.op{background:var(--b2);color:#fff}
+.faq-ic{width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.faq-a{background:var(--off);padding:20px;display:none;font-size:14px;color:var(--mu);line-height:1.65}
+.faq-a.op{display:block}
+
+/* TESTIMONIALS */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.test-card{background:#fff;border:1px solid var(--bdr);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;transition:all .3s}
+.test-card:hover{border-color:var(--b2);box-shadow:0 8px 32px rgba(59,130,246,.12)}
+.test-quote{color:var(--mu);font-size:15px;line-height:1.7;margin-bottom:24px;flex-grow:1}
+.test-quote::before{content:'"';font-size:32px;color:var(--b2);line-height:.5;height:0;display:block;margin-left:-8px;margin-bottom:12px}
+.test-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--bdr);padding-top:16px}
+.test-ava{width:48px;height:48px;border-radius:50%;background:var(--b2);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:var(--fh)}
+.test-name{font-family:var(--fh);font-size:15px;font-weight:600;line-height:1.3}
+.test-role{font-size:13px;color:var(--mu);line-height:1.3}
+
+/* CAROUSEL */
+.car-wrap{position:relative;margin-top:48px}
+.car-container{overflow:hidden;border-radius:var(--r)}
+.car-track{display:flex;gap:24px;transition:transform .4s ease-in-out}
+.car-slide{flex:0 0 33.333%;min-width:0}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:var(--b2);border:none;border-radius:50%;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:10}
+.car-btn:hover{background:var(--ink);transform:translateY(-50%) scale(1.1)}
+.car-btn.prev{left:-22px}
+.car-btn.next{right:-22px}
+.car-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
+.car-dot{width:8px;height:8px;border-radius:50%;background:var(--bdr);border:2px solid transparent;cursor:pointer;transition:all .2s}
+.car-dot.active{background:var(--b2);border-color:var(--b2)}
+.car-dot:hover{border-color:var(--b2)}
+
+/* FOOTER */
+footer{background:var(--ink2);color:#fff;padding:64px 0 32px}
+.fg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-bottom:48px}
+.logo-t{color:#fff}
+.logo-t span{color:var(--sky)}
+.fb-text{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;margin-top:16px}
+.fc h4{font-family:var(--fh);font-size:14px;font-weight:700;margin-bottom:18px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:10px}
+.fc a{color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb-bot{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(255,255,255,.5)}
+.soc{display:flex;gap:12px}
+.sb{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;font-family:var(--fh);font-size:12px;font-weight:700;transition:all .2s}
+.sb:hover{background:var(--b2);color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .proc-grid{grid-template-columns:repeat(2,1fr)}
+  .mp-grid{grid-template-columns:repeat(3,1fr)}
+  .fg-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .hero-in{grid-template-columns:1fr;gap:32px}
+  .hbg{display:flex}
+  .nl{display:none}
+  .mob{display:flex}
+}
+
+@media(max-width:1024px){
+  .car-slide{flex:0 0 50%}
+  .car-btn.prev{left:-22px}
+  .car-btn.next{right:-22px}
+}
+
+@media(max-width:640px){
+  .h1{font-size:clamp(28px,6vw,48px)}
+  .h2{font-size:clamp(22px,5vw,36px)}
+  .sec{padding:64px 0}
+  .svc-grid{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr}
+  .mp-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .fg-grid{grid-template-columns:1fr}
+  .fb-bot{flex-direction:column;gap:16px;text-align:center}
+  .hero-in{padding:40px 0}
+  .car-slide{flex:0 0 100%}
+  .car-btn{width:36px;height:36px;font-size:18px}
+  .car-btn.prev{left:-18px}
+  .car-btn.next{right:-18px}
+  .wrap{padding:0 16px}
+  img,iframe,video{max-width:100%;height:auto}
+  body{overflow-x:hidden}
+}
+</style>
+</head>
+<body>
+
+<!-- GLOBAL HEADER -->
+<div data-include="header.html"></div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg1"></div>
+  <div class="hdots"></div>
+  <div class="wrap hero-in">
+    <div>
+      <div class="h-badge"><span class="pulse"></span>Marketplace Growth Experts</div>
+      <h1 class="h1" style="color:#fff">Dominate Amazon, Flipkart & <em>All Marketplaces</em></h1>
+      <p class="hero-sub">From account optimization to sponsored ads to A+ content — we help Indian brands crush it on every major marketplace. Increase visibility, drive sales, and scale profitably.</p>
+      <div class="h-btns">
+        <a href="#hform" class="btn btn-g">🚀 Book Free Consultation</a>
+        <a href="#marketplaces" class="btn btn-ow">🏪 Our Expertise</a>
+      </div>
+    </div>
+    <div class="hform" id="hform">
+      <div class="hft">Marketplace Growth Consultation</div>
+      <div class="hfs">Free audit & growth strategy</div>
+      <div class="fg"><input class="input-field" type="text" placeholder="Your Name*" aria-label="Your Name"></div>
+      <div class="fg"><input class="input-field" type="tel" placeholder="Your Mobile Number*" aria-label="Your Mobile Number"></div>
+      <div class="fg"><input class="input-field" type="email" placeholder="Your Email*" aria-label="Your Email"></div>
+      <div class="fg"><input class="input-field" type="text" placeholder="Brand / Website" aria-label="Brand or Website"></div>
+      <div class="fg"><textarea class="input-field" placeholder="Anything else you would like us to know?" aria-label="Message"></textarea></div>
+      <button type="button" class="btn-submit fsub">Submit</button>
+      <p class="hint">🔒 Your details are safe. We respect your privacy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETPLACES -->
+<section id="marketplaces" class="sec sec-off">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:32px">
+      <div class="tag fu">Platforms We Manage</div>
+      <h2 class="h2 fu">Expert Management Across All Major Marketplaces</h2>
+    </div>
+    <div class="mp-grid">
+      <div class="mp-badge fu">🟠 Amazon</div>
+      <div class="mp-badge fu d1">🔵 Flipkart</div>
+      <div class="mp-badge fu d2">🩷 Myntra</div>
+      <div class="mp-badge fu d3">💜 Nykaa</div>
+      <div class="mp-badge fu">🟣 Meesho</div>
+      <div class="mp-badge fu d1">⚫ Ajio</div>
+      <div class="mp-badge fu d2">🔷 JioMart</div>
+      <div class="mp-badge fu d3">❤️ Tata CLiQ</div>
+      <div class="mp-badge fu">🟤 Etsy</div>
+      <div class="mp-badge fu d1">🟢 Shopify</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="tag fu">What We Do</div>
+      <h2 class="h2 fu">Complete Marketplace Growth Services</h2>
+      <p class="lead fu" style="margin-top:14px;max-width:600px;margin-left:auto;margin-right:auto">Account optimization, sponsored ads, A+ content, review management — everything you need to dominate.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fu">
+        <h3>📊 Account Audits</h3>
+        <p>Deep-dive analysis of your current listings, pricing, reviews, and performance. Identify gaps and opportunities for immediate growth.</p>
+      </div>
+      <div class="svc-card fu d1">
+        <h3>🎯 Sponsored Ads</h3>
+        <p>Manage sponsored product ads, brand ads, and display ads across all platforms. Maximize visibility and ROI with certified ad specialists.</p>
+      </div>
+      <div class="svc-card fu d2">
+        <h3>✍️ Listing Optimization</h3>
+        <p>SEO-optimized product titles, bullet points, descriptions, and A+ content. Increase visibility and improve conversion rates dramatically.</p>
+      </div>
+      <div class="svc-card fu">
+        <h3>⭐ Review Management</h3>
+        <p>Strategies to encourage positive reviews, manage negative feedback, and maintain stellar seller ratings across all platforms.</p>
+      </div>
+      <div class="svc-card fu d1">
+        <h3>💰 Pricing Optimization</h3>
+        <p>Competitive pricing analysis and dynamic pricing strategies to maximize profit margins while staying competitive.</p>
+      </div>
+      <div class="svc-card fu d2">
+        <h3>📈 Multi-Platform Growth</h3>
+        <p>Expand to new marketplaces strategically. We handle setup, optimization, and growth across multiple platforms simultaneously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec sec-off">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="tag fu">Our Process</div>
+      <h2 class="h2 fu">How We Grow Your Marketplace Business</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step fu">
+        <div class="proc-circle">1</div>
+        <h4>Audit</h4>
+        <p>Comprehensive analysis of your current accounts, listings, ads, and performance metrics.</p>
+      </div>
+      <div class="proc-step fu d1">
+        <div class="proc-circle">2</div>
+        <h4>Optimize</h4>
+        <p>SEO, content, images, and pricing — everything optimized for maximum visibility.</p>
+      </div>
+      <div class="proc-step fu d2">
+        <div class="proc-circle">3</div>
+        <h4>Advertise</h4>
+        <p>Launch high-ROI ad campaigns across all relevant marketplace ad platforms.</p>
+      </div>
+      <div class="proc-step fu d3">
+        <div class="proc-circle">4</div>
+        <h4>Scale</h4>
+        <p>Double down on what's working and expand to new categories and marketplaces.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="tag fu">FAQ</div>
+      <h2 class="h2 fu">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">How long does marketplace growth take? <span class="faq-ic">+</span></button>
+        <div class="faq-a">Most brands see initial improvements in rankings and traffic within 30–45 days. Significant revenue growth typically happens within 60–90 days as optimizations compound. Paid ads deliver results much faster — sometimes within the first week.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Do you manage ads across all marketplaces? <span class="faq-ic">+</span></button>
+        <div class="faq-a">Yes. We manage sponsored ads on Amazon, Flipkart, Myntra, Nykaa, and other platforms. Each marketplace has its own ad ecosystem and we have certified specialists for each.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Can you optimize our existing accounts? <span class="faq-ic">+</span></button>
+        <div class="faq-a">Absolutely. Account takeovers and optimization projects are our specialty. We audit your current setup, identify gaps, and implement improvements immediately. Most accounts see measurable improvement within the first 30 days.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Can you handle multiple marketplaces simultaneously? <span class="faq-ic">+</span></button>
+        <div class="faq-a">Yes — in fact, multi-marketplace management is one of our key strengths. We have dedicated team members for each platform and unified reporting so you always have a clear picture of performance across all channels.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Do you provide inventory planning? <span class="faq-ic">+</span></button>
+        <div class="faq-a">Yes. We analyze sales velocity, seasonal trends, and promotional calendars to recommend optimal inventory levels. This prevents stockouts during peak periods and reduces overstock costs.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">What is your pricing model? <span class="faq-ic">+</span></button>
+        <div class="faq-a">We offer flexible engagement models — monthly retainers, project-based, and performance-based options. Pricing depends on the number of marketplaces, SKUs, and services required. Book a free audit and we'll provide a transparent proposal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS CAROUSEL -->
+<section class="sec sec-off">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="tag fu">Success Stories</div>
+      <h2 class="h2 fu">What Our Marketplace Partners Say</h2>
+      <p class="lead fu" style="margin-top:14px;max-width:600px;margin-left:auto;margin-right:auto">Real results from real sellers across Amazon, Flipkart, Myntra, and multi-platform businesses.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card fu">
+        <div class="test-quote">Working with this team transformed our Amazon presence. We went from sporadic sales to 3X monthly revenue within 90 days. Their sponsored ads strategy is genius!</div>
+        <div class="test-author"><div class="test-ava">RA</div><div style="margin-left:8px"><div class="test-name">Rajesh Agarwal</div><div class="test-role">Amazon Seller Partner</div></div></div>
+      </div>
+      <div class="test-card fu d1">
+        <div class="test-quote">Flipkart growth seemed impossible until we partnered with them. They doubled our orders and helped us enter Myntra at the same time. Highly recommended!</div>
+        <div class="test-author"><div class="test-ava">PK</div><div style="margin-left:8px"><div class="test-name">Priya Khanna</div><div class="test-role">Brand Owner, Fashion & Apparel</div></div></div>
+      </div>
+      <div class="test-card fu d2">
+        <div class="test-quote">Our Myntra revenue jumped 150% in 6 months. The A+ content and pricing optimization were game changers. They truly understand e-commerce.</div>
+        <div class="test-author"><div class="test-ava">KA</div><div style="margin-left:8px"><div class="test-name">Karan Arora</div><div class="test-role">Myntra Certified Partner</div></div></div>
+      </div>
+      <div class="test-card fu">
+        <div class="test-quote">Managing 4 marketplaces was overwhelming. This team consolidated our efforts, optimized everything, and integrated reports. Now it's stress-free and profitable.</div>
+        <div class="test-author"><div class="test-ava">AV</div><div style="margin-left:8px"><div class="test-name">Anjali Verma</div><div class="test-role">Multi-Platform Seller</div></div></div>
+      </div>
+      <div class="test-card fu d1">
+        <div class="test-quote">E-commerce growth requires strategy, not luck. Their account takeover and ad management helped us scale from ₹50L to ₹2Cr ARR in just 18 months. Game-changer!</div>
+        <div class="test-author"><div class="test-ava">SJ</div><div style="margin-left:8px"><div class="test-name">Saurabh Jain</div><div class="test-role">D2C Brand Founder + Marketplace</div></div></div>
+      </div>
+    </div>
+    <div class="car-dots" id="carDots"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="contact" class="sec sec-dk" style="padding:120px 0">
+  <div class="wrap" style="text-align:center">
+    <div class="tag tag-w fu" style="justify-content:center;margin-bottom:18px">Let's Grow Together</div>
+    <h2 class="h2 fu" style="color:#fff;max-width:640px;margin:0 auto 18px">Ready to Grow Your Marketplace Business?</h2>
+    <p class="lead lw fu" style="margin:0 auto 32px;max-width:600px">Whether you're selling on Amazon, Flipkart, Myntra, Nykaa, or multiple platforms — our team helps you increase visibility, drive sales, and scale profitably.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:24px" class="fu">
+      <a href="tel:+91XXXXXXXXXX" class="btn btn-g">📞 Call Us Now</a>
+      <a href="mailto:hello@adsconversions.com" class="btn btn-ow">✉️ Send Email</a>
+    </div>
+    <p style="color:rgba(255,255,255,.4);font-size:13px" class="fu">✓ Free Audit &nbsp;·&nbsp; ✓ No Long Contracts &nbsp;·&nbsp; ✓ Dedicated Marketplace Experts</p>
+  </div>
+</section>
+
+<!-- GLOBAL FOOTER -->
+<div data-include="footer.html"></div>
+
+<script src="include-fragments.js"></script>
+</body>
+</html>
